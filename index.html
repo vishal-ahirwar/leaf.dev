@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
+
 <body>
     <header class="header">
         <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
             <a href="#" class="brand">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 17a5 5 0 0 0 8 0c0-2.21-1.79-4-4-4s-4 1.79-4 4zm10-1-1 1-1-1M12 2a5 5 0 0 0-8 0c0 2.21 1.79 4 4 4s4-1.79 4-4zm4 4c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-2.21 1.79-4 4-4s4 1.79 4 4zm0 8c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-2.21 1.79-4 4-4s4 1.79 4 4z"></path>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M2 17a5 5 0 0 0 8 0c0-2.21-1.79-4-4-4s-4 1.79-4 4zm10-1-1 1-1-1M12 2a5 5 0 0 0-8 0c0 2.21 1.79 4 4 4s4-1.79 4-4zm4 4c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-2.21 1.79-4 4-4s4 1.79 4 4zm0 8c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-2.21 1.79-4 4-4s4 1.79 4 4z">
+                    </path>
                 </svg>
                 Leaf
             </a>
             <div class="header-actions">
-                <a href="#features" class="nav-link">Commands</a>
                 <a href="#install" class="nav-link">Install</a>
+                <a href="#commands-reference" class="nav-link">Commands Reference</a>
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
-                   <!-- Icon injected via JS -->
+                    <!-- Icon injected via JS -->
                 </button>
             </div>
         </div>
@@ -30,149 +35,32 @@
         <!-- Hero Section -->
         <section class="hero container animate-in">
             <h1 class="animate-in">The Modern Project Manager for <span class="text-brand">C++</span></h1>
-            <p class="animate-in">A fast, intuitive, and modern CLI tool to setup, build, and manage your C++ applications with unparalleled simplicity.</p>
+            <p class="animate-in">A fast, intuitive, and modern CLI tool to setup, build, and manage your C++
+                applications with unparalleled simplicity.</p>
             <div class="hero-actions animate-in">
                 <a href="#install" class="btn btn-primary">Get Started</a>
-                <a href="#features" class="btn btn-secondary">Explore Commands</a>
+                <a href="#commands-reference" class="btn btn-secondary">Explore Commands</a>
             </div>
-            
-            <div class="copy-block animate-in">
-                <code>leaf create my_project</code>
-                <button class="copy-btn">Copy</button>
+
+            <div class="copy-block animate-in" style="max-width: 400px;">
+                <code id="hero-create">leaf create my_project</code>
+                <button class="copy-btn" data-clipboard-target="hero-create">Copy</button>
             </div>
         </section>
 
-        <!-- Toolchain Features Section -->
-        <section id="features" class="container">
-            <h2 class="text-center animate-in">Everything You Need</h2>
-            <p class="text-center animate-in" style="max-width: 600px; margin: 0 auto 3rem auto;">Leaf provides a robust set of commands to completely handle the C++ lifecycle—all zero-config.</p>
-            
-            <!-- Project Initialization -->
-            <h3 class="animate-in mt-8">Project Setup & Environment</h3>
-            <div class="commands-grid animate-in">
-                <div class="card">
-                    <span class="badge">leaf create</span>
-                    <p>Generates a new, fully structured Leaf project in a new directory, ready for code.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf init</span>
-                    <p>Initializes a new Leaf project structure within an existing directory.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf setup</span>
-                    <p>Setup Clang Toolchain for C/C++ Development including cmake, ninja, conan, and clang.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf doctor</span>
-                    <p>Checks your system to ensure all required tools (Clang, CMake, Conan) are properly installed.</p>
-                </div>
-            </div>
-
-            <!-- Build and Code -->
-            <h3 class="animate-in" style="margin-top: 4rem;">Build & Code Quality</h3>
-            <div class="commands-grid animate-in">
-                <div class="card">
-                    <span class="badge">leaf build</span>
-                    <p>Compiles the entire project and perfectly links all its dependencies.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf run</span>
-                    <p>Compiles and executes the main application target of your project in one step.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf compile</span>
-                    <p>Builds all targets in the project without running them.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf clean</span>
-                    <p>Deletes all build artifacts and reconfigures the project from scratch.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf format</span>
-                    <p>Automatically formats all C++ source code files according to a consistent style.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf docs</span>
-                    <p>Automatically generates extensive documentation for your project using doxygen.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf tests</span>
-                    <p>Runs all test suites project-wide using ctest.</p>
-                </div>
-            </div>
-
-            <!-- Dependencies -->
-            <h3 class="animate-in" style="margin-top: 4rem;">Dependency Management</h3>
-            <div class="commands-grid animate-in">
-                <div class="card">
-                    <span class="badge">leaf install</span>
-                    <p>Fetches and installs all the dependencies listed in the underlying conanfile.py.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf addpkg</span>
-                    <p>Add an external library to your project from the central registry.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf remove</span>
-                    <p>Safely remove a package dependency from your project.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf addapp</span>
-                    <p>Add a new executable sub-project to your workspace.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf addlib</span>
-                    <p>Add a shared library to your workspace.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf search</span>
-                    <p>Search for packages in the Conan package registry.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf info</span>
-                    <p>Display detailed information about a specific package.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf tree</span>
-                    <p>Display a visual dependency tree of the current active project.</p>
-                </div>
-            </div>
-
-            <!-- Publishing & Server -->
-            <h3 class="animate-in" style="margin-top: 4rem;">Distribution & Hosting</h3>
-            <div class="commands-grid animate-in">
-                <div class="card">
-                    <span class="badge">leaf publish</span>
-                    <p>Creates a release-ready Conan package from your completed project.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf upload</span>
-                    <p>Uploads a packaged library to a specified remote Conan repository.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf server</span>
-                    <p>Manages a lightweight Leaf package server for natively hosting private Conan packages.</p>
-                </div>
-                <div class="card">
-                    <span class="badge">leaf update</span>
-                    <p>Check for Leaf updates and seamlessly download the latest version from GitHub.</p>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Installation Section -->
+        <!-- Installation Section (Prominent Base) -->
         <section id="install" class="container animate-in">
             <h2 class="text-center mb-2">Install Leaf</h2>
-            <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem auto;">Setup Leaf in seconds directly from your terminal. Ensure you have C++20, CMake, and Conan ready.</p>
-            
+            <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem auto;">Setup the CLI directly from your
+                terminal. Ensure you have C++20, CMake, and Conan installed locally.</p>
+
             <div class="install-card">
                 <div class="tab-header">
                     <button class="tab-btn active" data-tab="tab-win">Windows</button>
                     <button class="tab-btn" data-tab="tab-nix">macOS / Linux</button>
                     <button class="tab-btn" data-tab="tab-src">Source</button>
                 </div>
-                
+
                 <!-- Windows Tab -->
                 <div class="tab-content active" id="tab-win">
                     <div class="code-window">
@@ -182,11 +70,14 @@
                             <span class="window-dot dot-green"></span>
                         </div>
                         <div class="code-pre">
-                            <div class="mb-2"><span class="code-comment"># Install via PowerShell</span></div>
-                            <code id="win-code">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/vishal-ahirwar/leaf/master/install.bat -OutFile install.bat; .\install.bat"</code>
+                            <div class="mb-2"><span class="code-comment"># Install via PowerShell automatically</span>
+                            </div>
+                            <code
+                                id="win-code">powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri https://raw.githubusercontent.com/vishal-ahirwar/leaf/master/install.bat -OutFile install.bat; .\install.bat"</code>
                         </div>
                     </div>
-                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="win-code">Copy Script</button>
+                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="win-code">Copy
+                        Script</button>
                 </div>
 
                 <!-- macOS / Linux Tab -->
@@ -198,11 +89,14 @@
                             <span class="window-dot dot-green"></span>
                         </div>
                         <div class="code-pre">
-                            <div class="mb-2"><span class="code-comment"># Install via Curl</span></div>
-                            <code id="nix-code">curl -fsSL https://raw.githubusercontent.com/vishal-ahirwar/leaf/master/install.sh | bash</code>
+                            <div class="mb-2"><span class="code-comment"># Download and execute the shell
+                                    installer</span></div>
+                            <code
+                                id="nix-code">curl -fsSL https://raw.githubusercontent.com/vishal-ahirwar/leaf/master/install.sh | bash</code>
                         </div>
                     </div>
-                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="nix-code">Copy Script</button>
+                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="nix-code">Copy
+                        Script</button>
                 </div>
 
                 <!-- Source Tab -->
@@ -214,27 +108,275 @@
                             <span class="window-dot dot-green"></span>
                         </div>
                         <div class="code-pre">
-                            <div class="mb-2"><span class="code-comment"># Clone and build using CMake</span></div>
+                            <div class="mb-2"><span class="code-comment"># Clone and build using standard CMake
+                                    configuration</span></div>
                             <div id="src-code">
-<div><span class="code-command">git</span> <span class="code-arg">clone</span> https://github.com/vishal-ahirwar/leaf.git</div>
-<div><span class="code-command">cd</span> leaf</div>
-<div><span class="code-command">cmake</span> -B build</div>
-<div><span class="code-command">cmake</span> --build build</div>
+                                <div><span class="code-command">git</span> <span class="code-arg">clone
+                                        --recursive</span> https://github.com/vishal-ahirwar/leaf.git</div>
+                                <div><span class="code-command">cd</span> leaf</div>
+                                <div><span class="code-command">python</span> build.py</div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="src-code">Copy Commands</button>
+                    <button class="btn btn-secondary mt-4 copy-btn" data-clipboard-target="src-code">Copy
+                        Commands</button>
                 </div>
             </div>
-            
+
             <div class="text-center mt-8">
                 <p>After installation, verify with:</p>
                 <div class="copy-block" style="max-width: 300px; margin-top: 1rem;">
-                    <code>leaf version</code>
-                    <button class="copy-btn">Copy</button>
+                    <code id="verify-code">leaf version</code>
+                    <button class="copy-btn" data-clipboard-target="verify-code">Copy</button>
                 </div>
             </div>
         </section>
+
+        <!-- Command Reference (Accordion Styles) -->
+        <section id="commands-reference" class="container animate-in">
+            <h2 class="text-center">Command Reference</h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto 3rem auto;">Explore the comprehensive suite
+                of Leaf commands. Click on a category to expand and see specific commands with examples.</p>
+
+            <div class="accordion">
+                <!-- Project Setup -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Project Setup & Environment</h3>
+                        <div class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="command-doc">
+                                <h4>leaf create</h4>
+                                <p>Generates a new, fully structured Leaf project in a new directory, ready for code.
+                                </p>
+                                <div class="command-clip">
+                                    <code id="cmd-create">leaf create &lt;project_name&gt;</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-create">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf init</h4>
+                                <p>Initializes a new Leaf project structure within an existing directory.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-init">leaf init</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-init">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf setup</h4>
+                                <p>Setup Clang Toolchain for C/C++ Development including cmake, ninja, conan, and clang.
+                                </p>
+                                <div class="command-clip">
+                                    <code id="cmd-setup">leaf setup</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-setup">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf doctor</h4>
+                                <p>Checks your system to ensure all required tools (Clang, CMake, Conan) are installed.
+                                </p>
+                                <div class="command-clip">
+                                    <code id="cmd-doctor">leaf doctor</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-doctor">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Build & Code Quality -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Build & Code Quality</h3>
+                        <div class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="command-doc">
+                                <h4>leaf build</h4>
+                                <p>Compiles the entire project and perfectly links all its dependencies.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-build">leaf build</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-build">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf compile</h4>
+                                <p>Builds all targets in the project without running them.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-compile">leaf compile</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-compile">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf run</h4>
+                                <p>Compiles and executes the main application target of your project in one step.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-run">leaf run</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-run">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf format</h4>
+                                <p>Automatically formats all C++ source code files according to a consistent style.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-format">leaf format</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-format">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf clean</h4>
+                                <p>Deletes all build artifacts and reconfigures the project from scratch.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-clean">leaf clean</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-clean">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf tests</h4>
+                                <p>Runs all test suites project-wide using ctest.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-tests">leaf tests</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-tests">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dependency Management -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Dependency Management</h3>
+                        <div class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="command-doc">
+                                <h4>leaf install</h4>
+                                <p>Fetches and installs all the dependencies listed in the conanfile.py.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-install">leaf install</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-install">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf addpkg</h4>
+                                <p>Add an external library to your project from the central registry.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-addpkg">leaf addpkg &lt;pkg_name&gt;</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-addpkg">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf remove</h4>
+                                <p>Safely remove a package dependency from your project.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-remove">leaf remove &lt;pkg_name&gt;</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-remove">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf search</h4>
+                                <p>Search for packages dynamically inside the Conan package registry.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-search">leaf search &lt;query&gt;</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-search">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf info</h4>
+                                <p>Display detailed information about a specific package.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-info">leaf info &lt;pkg_name&gt;</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-info">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf tree</h4>
+                                <p>Display a visual dependency tree of the current active project.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-tree">leaf tree</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-tree">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distribution & Hosting -->
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <h3>Distribution & Hosting</h3>
+                        <div class="accordion-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="command-doc">
+                                <h4>leaf publish</h4>
+                                <p>Creates a release-ready Conan package from your completed project.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-publish">leaf publish</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-publish">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf upload</h4>
+                                <p>Uploads a packaged library to a specified remote Conan repository.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-upload">leaf upload</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-upload">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf server</h4>
+                                <p>Manages a lightweight Leaf package server for natively hosting private Conan
+                                    packages.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-server">leaf server</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-server">Copy</button>
+                                </div>
+                            </div>
+                            <div class="command-doc">
+                                <h4>leaf update</h4>
+                                <p>Check for Leaf updates and seamlessly download the latest version from GitHub.</p>
+                                <div class="command-clip">
+                                    <code id="cmd-update">leaf update</code>
+                                    <button class="copy-btn" data-clipboard-target="cmd-update">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="footer">
@@ -244,4 +386,5 @@
         </div>
     </footer>
 </body>
+
 </html>

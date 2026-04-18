@@ -115,14 +115,14 @@ p {
 
 /* Layout */
 .container {
-  max-width: 1200px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .flex-1 { flex: 1; }
@@ -258,9 +258,7 @@ section {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 100px 0;
-  max-width: 800px;
-  margin: 0 auto;
+  padding: 80px 0 40px;
 }
 
 .hero p {
@@ -276,7 +274,7 @@ section {
   flex-wrap: wrap;
 }
 
-/* Copy Block Layout */
+/* Interactive Copy Block */
 .copy-block {
   margin-top: 3rem;
   background: var(--code-bg);
@@ -297,6 +295,8 @@ section {
   font-family: 'Space Grotesk', monospace;
   font-size: 1rem;
   font-weight: 500;
+  white-space: pre-wrap;
+  text-align: left;
 }
 
 .copy-btn {
@@ -308,6 +308,8 @@ section {
   cursor: pointer;
   font-weight: 600;
   transition: all 0.2s;
+  flex-shrink: 0;
+  font-size: 0.85rem;
 }
 
 .copy-btn:hover {
@@ -322,52 +324,111 @@ section {
   border-color: var(--success);
 }
 
-/* Commands Grid */
-.commands-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 40px;
+/* Accordion for Commands Base Styling */
+.accordion {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.card {
+.accordion-item {
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
   border-radius: 16px;
-  padding: 32px;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--brand-border);
+.accordion-header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: var(--bg-surface);
+  transition: background-color 0.2s;
+  user-select: none;
 }
 
-.card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--brand-glass);
+.accordion-header:hover {
+  background: var(--bg-surface-2);
+}
+
+.accordion-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+.accordion-icon {
+  transition: transform 0.3s;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--brand);
-  margin-bottom: 20px;
 }
 
-.badge {
-  display: inline-block;
-  font-family: 'Space Grotesk', monospace;
-  background: var(--bg-surface-2);
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
   color: var(--brand);
+}
+
+.accordion-item.active {
+  border-color: var(--brand-border);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  background: var(--bg-surface-2);
+}
+
+.accordion-inner {
+  padding: 0 24px 24px 24px;
+  display: grid;
+  gap: 16px;
+}
+
+/* Detailed command display inside accordion */
+.command-doc {
+  background: var(--bg-surface);
   border: 1px solid var(--border-light);
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  margin: 4px 4px 12px 0;
-  font-weight: 600;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.command-doc h4 {
+  font-family: 'Space Grotesk', monospace;
+  color: var(--brand);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.command-doc p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.command-clip {
+  background: var(--code-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 4px 16px;
+}
+
+.command-clip code {
+  color: var(--code-text);
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.9rem;
 }
 
 /* Installation Tabs */
